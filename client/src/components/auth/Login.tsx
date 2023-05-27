@@ -1,19 +1,43 @@
-import { FormControl, FormHelperText, TextField, Box } from "@mui/material";
+import { Button, styled } from "@mui/material";
 import { Input } from "@mui/joy";
+import { useState } from "react";
+import axios from "../../api/axios";
 
+const StyledForm = styled("form")({
+  display: "flex",
+  flexDirection: "column",
+  gap: 10,
+});
 export default function Login() {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(email, password);
+  };
+
   return (
-    <div>
-      <Box>
-        <FormControl sx={{ width: "100%", gap: 3 }}>
-          <Input placeholder="Enter your email" variant="outlined" />
-          <Input
-            placeholder="Enter your password"
-            type="password"
-            variant="outlined"
-          />
-        </FormControl>
-      </Box>
-    </div>
+    <StyledForm onSubmit={handleLogin}>
+      <Input
+        required
+        placeholder="Enter your email"
+        variant="outlined"
+        value={email}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
+          setEmail(e.target.value)
+        }
+      />
+      <Input
+        required
+        placeholder="Enter your password"
+        variant="outlined"
+        value={password}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>): void =>
+          setPassword(e.target.value)
+        }
+      />
+      <Button type="submit">Submit</Button>
+    </StyledForm>
   );
 }

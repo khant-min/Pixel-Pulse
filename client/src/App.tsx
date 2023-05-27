@@ -4,8 +4,8 @@ import Main from "./pages/Main";
 const App = () => {
   return (
     <div>
-      <Auth />
-      {/* <Main /> */}
+      {/* <Auth /> */}
+      <Main />
     </div>
   );
 };

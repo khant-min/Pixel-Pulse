@@ -33,7 +33,11 @@ export default function Creator() {
         <Box display="flex" gap={2}>
           <Avatar alt="profile" src={pain} />
           <InputBase
-            sx={{ borderRadius: "1.5rem", bgcolor: "lightgray", px: 2 }}
+            sx={{
+              borderRadius: "1.5rem",
+              bgcolor: "lightgray",
+              px: 2,
+            }}
             placeholder="What's on your mind, Khant?"
             fullWidth
           />

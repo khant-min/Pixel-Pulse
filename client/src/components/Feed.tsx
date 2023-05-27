@@ -10,6 +10,7 @@ import {
   IconButton,
   Modal,
   Button,
+  Tooltip,
 } from "@mui/material";
 import pain from "../public/assets/pain.jpg";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
@@ -18,9 +19,46 @@ import ModeCommentIcon from "@mui/icons-material/ModeComment";
 import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import { useState } from "react";
 import Creator from "./Creator";
+import Reacts from "./miscellaneous/Reacts";
+import CloseIcon from "@mui/icons-material/Close";
+import { Input } from "@mui/joy";
+import SendIcon from "@mui/icons-material/Send";
+import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
+import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
+import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import { useAppSelector } from "../redux/store/store";
+import { reaction } from "../redux/features/ActiveReactions";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import StarIcon from "@mui/icons-material/Star";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
+import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
 
 const Feed = () => {
   const [open, setOpen] = useState<boolean>(false);
+
+  const postReaction = useAppSelector(reaction);
+
+  let react;
+  switch (postReaction) {
+    case "like":
+      react = <ThumbUpIcon fontSize="medium" />;
+      break;
+    case "love":
+      react = <FavoriteIcon fontSize="medium" />;
+      break;
+    case "star":
+      react = <StarIcon fontSize="medium" />;
+      break;
+    case "sad":
+      react = <SentimentVeryDissatisfiedIcon fontSize="medium" />;
+      break;
+    case "angry":
+      react = <SentimentDissatisfiedIcon fontSize="medium" />;
+      break;
+    default:
+      react = "Invalid reaction";
+      break;
+  }
 
   const style = {
     position: "absolute" as "absolute",
@@ -36,7 +74,13 @@ const Feed = () => {
 
   return (
     <>
-      <Box flex={4} px={10}>
+      <Box
+        flex={4}
+        px={10}
+        height="100vh"
+        overflow="scroll"
+        component="section"
+      >
         <Creator />
         <Card sx={{ borderRadius: "md", my: 6 }}>
           <CardHeader
@@ -62,16 +106,11 @@ const Feed = () => {
             disableSpacing
             sx={{ display: "flex", justifyContent: "space-between" }}
           >
-            <IconButton
-              aria-label="like"
-              sx={{
-                ":hover": {
-                  bgcolor: "gray[400]",
-                },
-              }}
-            >
-              <ThumbUpIcon fontSize="medium" /> Like
-            </IconButton>
+            <Tooltip title={<Reacts />} placement="top-start">
+              <IconButton aria-label="like">
+                {react} {postReaction}
+              </IconButton>
+            </Tooltip>
             <IconButton aria-label="comment" onClick={() => setOpen(true)}>
               <ModeCommentIcon fontSize="medium" /> Comment
             </IconButton>
@@ -88,15 +127,32 @@ const Feed = () => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Text in a modal
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
-          <Button variant="contained" onClick={() => setOpen(false)}>
-            cancel
-          </Button>
+          <Box display="flex" justifyContent="space-between">
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Creator's Post
+            </Typography>
+            <Button variant="contained" onClick={() => setOpen(false)}>
+              <CloseIcon />
+            </Button>
+          </Box>
+          <Box mt="200px">
+            <Typography>Nobody's comment yet</Typography>
+            <Input placeholder="Write a comment..." variant="outlined" />
+            <Box>
+              <IconButton>
+                <EmojiEmotionsIcon />
+              </IconButton>
+              <IconButton>
+                <PhotoCameraIcon />
+              </IconButton>
+              <IconButton>
+                <PhotoLibraryIcon />
+              </IconButton>
+              <IconButton>
+                <SendIcon />
+              </IconButton>
+            </Box>
+          </Box>
         </Box>
       </Modal>
     </>

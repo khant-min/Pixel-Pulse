@@ -1,10 +1,24 @@
-import express, { Request, Response } from "express";
+import { config } from "dotenv";
+config();
+import express from "express";
+import mongoose from "mongoose";
+import root from "./routes/root";
+import auth from "./routes/authRoutes";
+import { connectDB } from "./config/connectDB";
 const app = express();
+const PORT = 3000;
 
-app.get("/", (req: Request, res: Response): void => {
-  res.json({ message: "Hello World" });
-});
+connectDB();
 
-app.listen("3000", (): void => {
-  console.log("Server is running");
+app.use(express.json());
+
+
+app.use("/", root);
+app.use("/api/auth", auth);
+
+mongoose.connection.once("open", () => {
+  console.log("connected to mongoose");
+  app.listen(PORT, (): void =>
+    console.log(`server is running on port ${PORT}`)
+  );
 });
