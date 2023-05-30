@@ -22,7 +22,7 @@ export default function Signup() {
       name,
       email,
       password,
-      pic,
+      // pic,
     });
     console.log(res);
   };
@@ -67,7 +67,7 @@ export default function Signup() {
           setConfirmPassword(e.target.value)
         }
       />
-      <Input
+      {/* <Input
         required
         variant="outlined"
         type="file"
@@ -75,7 +75,7 @@ export default function Signup() {
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setPic(e.target.value)
         }
-      />
+      /> */}
       <Button type="submit">Submit</Button>
     </StyledForm>
   );

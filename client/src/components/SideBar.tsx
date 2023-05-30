@@ -1,73 +1,3 @@
-// import {
-//   Box,
-//   List,
-//   ListItem,
-//   ListItemButton,
-//   ListItemIcon,
-//   ListItemText,
-//   Switch,
-// } from "@mui/material";
-// import HomeIcon from "@mui/icons-material/Home";
-// import ModeNightIcon from "@mui/icons-material/ModeNight";
-
-// const SideBar = () => {
-//   return (
-//     <Box
-//       flex={2}
-//       sx={{
-//         display: { xs: "none", sm: "block" },
-//       }}
-//     >
-//       <Box position="fixed">
-//         <List>
-//           <ListItem disablePadding>
-//             <ListItemButton>
-//               <ListItemIcon>
-//                 <HomeIcon />
-//               </ListItemIcon>
-//               <ListItemText primary="Home" />
-//             </ListItemButton>
-//           </ListItem>
-//           <ListItem disablePadding>
-//             <ListItemButton>
-//               <ListItemIcon>
-//                 <HomeIcon />
-//               </ListItemIcon>
-//               <ListItemText primary="Profile" />
-//             </ListItemButton>
-//           </ListItem>
-//           <ListItem disablePadding>
-//             <ListItemButton>
-//               <ListItemIcon>
-//                 <HomeIcon />
-//               </ListItemIcon>
-//               <ListItemText primary="Group" />
-//             </ListItemButton>
-//           </ListItem>
-//           <ListItem disablePadding>
-//             <ListItemButton>
-//               <ListItemIcon>
-//                 <HomeIcon />
-//               </ListItemIcon>
-//               <ListItemText primary="Setting" />
-//             </ListItemButton>
-//           </ListItem>
-//           <ListItem disablePadding>
-//             <ListItemButton>
-//               <ListItemIcon>
-//                 <ModeNightIcon />
-//               </ListItemIcon>
-//               <Switch />
-//             </ListItemButton>
-//           </ListItem>
-//         </List>
-//       </Box>
-//     </Box>
-//   );
-// };
-
-// export default SideBar;
-
 import {
   AccountBox,
   Article,
@@ -87,7 +17,6 @@ import {
   ListItemText,
   Switch,
 } from "@mui/material";
-import React from "react";
 
 const Sidebar = () => {
   return (

@@ -14,10 +14,10 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  pic: {
-    type: String,
-    required: true,
-  },
+  // pic: {
+  //   type: String,
+  //   required: true,
+  // },
   token: {
     type: String,
   },

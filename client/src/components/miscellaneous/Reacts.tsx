@@ -15,12 +15,6 @@ export default function Reacts() {
     dispatch(userReaction(reaction));
   };
 
-  const funtest = () => {
-    console.log("funtest");
-  };
-
-  const test = "hello test";
-
   return (
     <StyledReacts>
       <Like handleClick={handleClick} />

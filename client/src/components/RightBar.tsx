@@ -51,67 +51,67 @@ const RightBar = () => {
       <Stack>
         <List>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#home">
+            <ListItemButton component="a" href="#home" sx={{ gap: 2 }}>
               <Avatar />
               <ListItemText primary="ei ei" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton component="a" href="#simple-list" sx={{ gap: 2 }}>
               <Avatar />
               <ListItemText primary="la woon" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton component="a" href="#simple-list" sx={{ gap: 2 }}>
               <Avatar />
               <ListItemText primary="myat" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton component="a" href="#simple-list" sx={{ gap: 2 }}>
               <Avatar />
               <ListItemText primary="mayve" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton component="a" href="#simple-list" sx={{ gap: 2 }}>
               <Avatar />
               <ListItemText primary="snow" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton component="a" href="#simple-list" sx={{ gap: 2 }}>
               <Avatar />
               <ListItemText primary="pusi" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton component="a" href="#simple-list" sx={{ gap: 2 }}>
               <Avatar />
               <ListItemText primary="nyo nyo" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton component="a" href="#simple-list" sx={{ gap: 2 }}>
               <Avatar />
               <ListItemText primary="the nyo ma" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton component="a" href="#simple-list" sx={{ gap: 2 }}>
               <Avatar />
               <ListItemText primary="the nyo ma" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton component="a" href="#simple-list" sx={{ gap: 2 }}>
               <Avatar />
               <ListItemText primary="the nyo ma" />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
+            <ListItemButton component="a" href="#simple-list" sx={{ gap: 2 }}>
               <Avatar />
               <ListItemText primary="the nyo ma" />
             </ListItemButton>

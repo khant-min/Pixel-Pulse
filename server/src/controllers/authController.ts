@@ -7,7 +7,7 @@ interface UserProps {
   name: string;
   email: string;
   password: string;
-  pic: string;
+  // pic: string;
 }
 
 interface AuthProps {
@@ -17,8 +17,9 @@ interface AuthProps {
 
 export const signup = async (req: Request, res: Response) => {
   console.log("test in control", req.body);
-  const { name, email, password, pic }: UserProps = req.body;
-  if (!name || !email || !password || !pic)
+  const { name, email, password }: UserProps = req.body; /// need to restore pic
+  if (!name || !email || !password)
+    // pic
     return res.json({ message: "Enter required fileds" });
 
   const duplicateUser = await Users.findOne({ email }).exec();
@@ -31,7 +32,7 @@ export const signup = async (req: Request, res: Response) => {
       name,
       email,
       password: hashedPassword,
-      pic,
+      // pic,
     });
     console.log("result in auth controller: ", result);
     res.status(201).json({ success: `New User ${name} created successfully` });
@@ -50,7 +51,7 @@ export const login = async (req: Request, res: Response) => {
 
   const matchPassword = await bcrypt.compare(password, foundUser.password);
   if (!matchPassword)
-    return res.sendStatus(401).json({ error: "Invalid password" });
+    return res.status(401).json({ error: "Invalid password" });
 
   // foundUser.token = generateToken(foundUser._id);
   const result = await foundUser.save();
