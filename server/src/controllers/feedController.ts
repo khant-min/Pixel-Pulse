@@ -7,22 +7,26 @@ interface PostProps {
   postPic?: string;
 }
 
-export const getPosts = async (req: Request, res: Response) => {
+export const getAllPosts = async (req: Request, res: Response) => {
   const getPosts = await Posts.find().exec();
   if (!getPosts)
     return res.status(204).json({ message: "No posts to show, create one" });
+  res.status(200).json(getPosts);
 };
 
 export const createNewPost = async (req: Request, res: Response) => {
-  const { postText, postPic }: PostProps = req.body;
-  if (!(postText || postPic))
-    return res.status(402).json({ message: "Post something..." });
+  const { postText }: PostProps = req.body; //// pic comes later
+  if (!postText) return res.status(402).json({ message: "Post something..." });
 
-  const savePost = await Posts.create({
-    postText,
-    postPic,
-  });
-  res.status(201).json({ message: "Post created successfully" });
+  try {
+    const savePost = await Posts.create({
+      postText,
+      // post pic
+    });
+    res.status(201).json(savePost);
+  } catch (err: any) {
+    res.sendStatus(500);
+  }
 };
 
 // export const updatePost = async (req: Request, res: Response) => {

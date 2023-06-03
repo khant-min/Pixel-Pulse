@@ -1,6 +1,6 @@
 import { Router } from "express";
 import {
-  getPosts,
+  getAllPosts,
   createNewPost,
   deletePost,
   //   updatePost,
@@ -8,6 +8,6 @@ import {
 
 const router = Router();
 
-router.route("/").get(createNewPost);
+router.route("/").get(getAllPosts).post(createNewPost);
 
 export default router;

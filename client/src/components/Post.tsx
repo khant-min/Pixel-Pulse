@@ -12,13 +12,12 @@ import {
   Button,
   Tooltip,
 } from "@mui/material";
-import pain from "../public/assets/pain.jpg";
+// import pain from "../public/assets/pain.jpg";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ModeCommentIcon from "@mui/icons-material/ModeComment";
 import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import { useState } from "react";
-import Creator from "./Creator";
 import Reacts from "./miscellaneous/Reacts";
 import CloseIcon from "@mui/icons-material/Close";
 import { Input } from "@mui/joy";
@@ -33,7 +32,7 @@ import StarIcon from "@mui/icons-material/Star";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
 
-const Feed = () => {
+const Post = ({ post }: { post: any }) => {
   const [open, setOpen] = useState<boolean>(false);
 
   const postReaction = useAppSelector(reaction);
@@ -74,14 +73,7 @@ const Feed = () => {
 
   return (
     <>
-      <Box
-        flex={4}
-        px={10}
-        height="100vh"
-        overflow="scroll"
-        component="section"
-      >
-        <Creator />
+      <Box>
         <Card sx={{ borderRadius: "md", my: 6 }}>
           <CardHeader
             avatar={<Avatar>K</Avatar>}
@@ -93,15 +85,8 @@ const Feed = () => {
             title="Shrimp and Chorizo Paella"
             subheader="September 14, 2016"
           ></CardHeader>
-          <CardContent>
-            <Typography>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit
-              optio vitae ullam ipsum porro nostrum consequuntur. Accusamus
-              nemo, sint odio saepe, sit impedit inventore eveniet recusandae
-              asperiores, qui adipisci quas.
-            </Typography>
-          </CardContent>
-          <CardMedia component="img" height="400" image={pain} />
+          <CardContent>{post.postText}</CardContent>
+          {/* <CardMedia component="img" height="700" image={pain} /> */}
           <CardActions
             disableSpacing
             sx={{ display: "flex", justifyContent: "space-between" }}
@@ -159,4 +144,4 @@ const Feed = () => {
   );
 };
 
-export default Feed;
+export default Post;
