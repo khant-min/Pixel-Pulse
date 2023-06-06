@@ -8,7 +8,7 @@ const Layout = () => {
   return (
     <Box>
       <NavBar />
-      <Stack direction="row" justifyContent="space-between" spacing={2} mt={10}>
+      <Stack direction="row" justifyContent="space-between" spacing={2}>
         <SideBar />
         <NewFeed />
         <RightBar />

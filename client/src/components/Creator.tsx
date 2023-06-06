@@ -11,15 +11,21 @@ import { LiveTv } from "@mui/icons-material";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import MoodIcon from "@mui/icons-material/Mood";
 import pain from "../public/assets/pain.jpg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import Textarea from "@mui/joy/Textarea";
-import { createPost } from "../queries/postQueries";
+import { useAddPostsMutation } from "../redux/features/api/apiSlice";
+import { useAuth } from "../context/DataContext";
+import { DataContextProps } from "../types/global.types";
+import ToastAlert from "./miscellaneous/ToastAlert";
 
 export default function Creator() {
   const [postOpen, setPostOpen] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
   const [postText, setPostText] = useState<string>("");
+
+  const { toast, setToast } = useAuth() as DataContextProps;
+  const [addPosts, { isSuccess, isError, isLoading }] = useAddPostsMutation();
 
   const style = {
     position: "absolute" as "absolute",
@@ -33,8 +39,27 @@ export default function Creator() {
     p: 4,
   };
 
+  const handleClick = () => {
+    if (!isSuccess)
+      return setToast({
+        open: true,
+        status: "error",
+        message: "Error Occured!",
+      });
+
+    if (isSuccess) {
+      addPosts({ postText });
+      return setToast({
+        open: true,
+        status: "success",
+        message: JSON.stringify("Post created successfully"),
+      });
+    }
+  };
+
   return (
     <>
+      <ToastAlert />
       <Box p={2} mt={4} boxShadow={3}>
         <Box display="flex" gap={2}>
           <Avatar alt="profile" src={pain} />
@@ -115,11 +140,7 @@ export default function Creator() {
             }
           />
 
-          <Button
-            fullWidth
-            variant="contained"
-            onClick={() => createPost(postText)}
-          >
+          <Button fullWidth variant="contained" onClick={handleClick}>
             Post
           </Button>
         </Box>
