@@ -2,20 +2,24 @@ import { Button, styled } from "@mui/material";
 import { Input } from "@mui/joy";
 import { useState } from "react";
 import axios from "../../api/axios";
+import { useNavigate } from "react-router-dom";
 
 const StyledForm = styled("form")({
   display: "flex",
   flexDirection: "column",
   gap: 10,
 });
+
 export default function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await axios.post("/api/auth/login", { email, password });
-    console.log(res);
+    localStorage.setItem("user_info", JSON.stringify({ email }));
+    navigate("/");
   };
 
   return (

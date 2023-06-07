@@ -18,13 +18,14 @@ export default function Signup() {
 
   const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await axios.post("/api/auth/signup", {
+    const { data } = await axios.post("/api/auth/signup", {
       name,
       email,
       password,
       // pic,
     });
-    console.log(res);
+    // console.log(res);
+    console.log("res", data);
   };
 
   return (

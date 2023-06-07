@@ -4,7 +4,7 @@ import NavBar from "../components/NavBar";
 import { Box, Stack } from "@mui/material";
 import NewFeed from "../components/NewFeed";
 
-const Layout = () => {
+const Main = () => {
   return (
     <Box>
       <NavBar />
@@ -17,4 +17,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default Main;
