@@ -1,7 +1,7 @@
 import { Button, styled } from "@mui/material";
 import { Input } from "@mui/joy";
 import { useState } from "react";
-import axios from "../../api/axios";
+import axios from "../../axios-client";
 import { useNavigate } from "react-router-dom";
 
 const StyledForm = styled("form")({

@@ -1,7 +1,10 @@
 import { FormHelperText, Button, styled } from "@mui/material";
 import { Input } from "@mui/joy";
 import { useState } from "react";
-import axios from "../../api/axios";
+import axiosClient from "../../axios-client";
+import { useAuth } from "../../context/DataContext";
+import { DataContextProps } from "../../types/global.types";
+import { useNavigate } from "react-router-dom";
 
 const StyledForm = styled("form")({
   display: "flex",
@@ -15,17 +18,20 @@ export default function Signup() {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [pic, setPic] = useState<string>("");
+  const navigate = useNavigate();
+
+  const { setToken } = useAuth() as DataContextProps;
 
   const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { data } = await axios.post("/api/auth/signup", {
+    const { data } = await axiosClient.post("/api/auth/signup", {
       name,
       email,
       password,
       // pic,
     });
-    // console.log(res);
-    console.log("res", data);
+    setToken(data.accessToken);
+    navigate("/");
   };
 
   return (

@@ -9,4 +9,8 @@ export interface ToastType {
 export interface DataContextProps {
   toast: ToastType;
   setToast: React.Dispatch<React.SetStateAction<ToastType>>;
+  user: string;
+  setUser: React.Dispatch<React.SetStateAction<string>>;
+  token: string;
+  setToken: (token: string) => void;
 }

@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import Users from "../models/Users";
 import bcrypt from "bcrypt";
+import { sign, SignOptions } from "jsonwebtoken";
 // import { generateToken } from "../config/generateToken";
 
 interface UserProps {
@@ -22,20 +23,34 @@ export const signup = async (req: Request, res: Response) => {
     // pic
     return res.json({ message: "Enter required fileds" });
 
-  const duplicateUser = await Users.findOne({ email }).exec();
-  if (duplicateUser)
+  const duplicate = await Users.findOne({ email }).exec();
+  if (duplicate)
     return res.status(409).json({ message: "Emial already exists" });
 
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
+
+    const payload = { email };
+    const signInOptions: SignOptions = {
+      expiresIn: "30s",
+    };
+
+    const accessToken = sign(
+      payload,
+      // process.env.ACCESS_TOKEN as string,
+      "ahsdf232323323askfjaslk",
+      signInOptions
+    );
+
     const result = await Users.create({
       name,
       email,
       password: hashedPassword,
+      accessToken,
       // pic,
     });
     console.log("result in auth controller: ", result);
-    res.status(201).json({ success: `New User ${name} created successfully` });
+    res.status(201).json({ accessToken });
   } catch (err) {
     res.status(500).json({ message: (err as Error).message });
   }
@@ -53,8 +68,21 @@ export const login = async (req: Request, res: Response) => {
   if (!matchPassword)
     return res.status(401).json({ error: "Invalid password" });
 
-  // foundUser.token = generateToken(foundUser._id);
+  const payload = foundUser._id;
+  const signInOptions: SignOptions = {
+    expiresIn: "30s",
+  };
+
+  const accessToken = sign(
+    payload,
+    process.env.ACCESS_TOKEN as string,
+    signInOptions
+  );
+
+  foundUser.accessToken = accessToken;
   const result = await foundUser.save();
-  console.log("result in auth controller", result);
-  res.json({ success: foundUser });
+  console.log(result);
+  res.json({ accessToken });
 };
+
+export const logout = async (req: Request, res: Request) => {};
