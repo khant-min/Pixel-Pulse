@@ -1,6 +1,5 @@
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
-import { useEffect, useState } from "react";
 import { Alert } from "@mui/material";
 import { useAuth } from "../../context/DataContext";
 import { DataContextProps } from "../../types/global.types";

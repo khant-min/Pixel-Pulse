@@ -26,6 +26,7 @@ export default function Creator() {
 
   const { toast, setToast } = useAuth() as DataContextProps;
   const [addPosts, { isSuccess, isError, isLoading }] = useAddPostsMutation();
+  // const [addPosts, test] = useAddPostsMutation();
 
   const style = {
     position: "absolute" as "absolute",
@@ -40,20 +41,21 @@ export default function Creator() {
   };
 
   const handleClick = () => {
-    if (!isSuccess)
-      return setToast({
-        open: true,
-        status: "error",
-        message: "Error Occured!",
-      });
-
-    if (isSuccess) {
+    try {
       addPosts({ postText });
       return setToast({
         open: true,
         status: "success",
         message: JSON.stringify("Post created successfully"),
       });
+    } catch (err) {
+      return setToast({
+        open: true,
+        status: "error",
+        message: "Error Occured!",
+      });
+    } finally {
+      setPostOpen(false);
     }
   };
 

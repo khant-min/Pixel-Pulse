@@ -3,6 +3,8 @@ import { Input } from "@mui/joy";
 import { useState } from "react";
 import axios from "../../axios-client";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/DataContext";
+import { DataContextProps } from "../../types/global.types";
 
 const StyledForm = styled("form")({
   display: "flex",
@@ -14,11 +16,13 @@ export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const { setToast } = useAuth() as DataContextProps;
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const res = await axios.post("/api/auth/login", { email, password });
-    localStorage.setItem("user_info", JSON.stringify({ email }));
+    const { data } = await axios.post("/api/auth/login", { email, password });
+    localStorage.setItem("ACCESS_TOKEN", data.accessToken);
+    setToast({ open: true, status: "success", message: "Login successfully" });
     navigate("/");
   };
 
