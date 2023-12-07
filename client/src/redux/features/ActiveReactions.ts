@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Reaction } from "../../types/global.types";
+import { Reaction } from "../../types";
 import { RootState } from "../store/store";
 
 interface InitialStateProps {

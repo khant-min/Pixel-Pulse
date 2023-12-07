@@ -4,7 +4,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import SentimentDissatisfiedIcon from "@mui/icons-material/SentimentDissatisfied";
-import { Reaction } from "../../types/global.types";
+import { Reaction } from "../../types";
 
 interface ClickProps {
   handleClick: (reaction: Reaction) => void;

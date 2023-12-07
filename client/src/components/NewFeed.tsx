@@ -3,7 +3,7 @@ import { useGetPostsQuery } from "../redux/features/api/apiSlice";
 import Post from "./Post";
 import Creator from "./Creator";
 import { useAuth } from "../context/DataContext";
-import { DataContextProps } from "../types/global.types";
+import { DataContextProps } from "../types";
 import { useNavigate } from "react-router-dom";
 import axiosClient from "../axios-client";
 import { useEffect } from "react";

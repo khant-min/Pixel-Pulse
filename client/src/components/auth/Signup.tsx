@@ -3,7 +3,7 @@ import { Input } from "@mui/joy";
 import { useState } from "react";
 import axiosClient from "../../axios-client";
 import { useAuth } from "../../context/DataContext";
-import { DataContextProps } from "../../types/global.types";
+import { DataContextProps } from "../../types";
 import { useNavigate } from "react-router-dom";
 
 const StyledForm = styled("form")({

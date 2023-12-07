@@ -2,7 +2,7 @@ import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import { Alert } from "@mui/material";
 import { useAuth } from "../../context/DataContext";
-import { DataContextProps } from "../../types/global.types";
+import { DataContextProps } from "../../types";
 
 export default function SimpleSnackbar() {
   const { toast, setToast } = useAuth() as DataContextProps;

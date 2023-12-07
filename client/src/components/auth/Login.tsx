@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "../../axios-client";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/DataContext";
-import { DataContextProps } from "../../types/global.types";
+import { DataContextProps } from "../../types";
 
 const StyledForm = styled("form")({
   display: "flex",

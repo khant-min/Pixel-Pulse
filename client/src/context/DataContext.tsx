@@ -1,6 +1,6 @@
 // imports from react
 import { createContext, useState, useContext } from "react";
-import { DataContextProps, ToastType } from "../types/global.types";
+import { DataContextProps, ToastType } from "../types";
 
 const DataContext = createContext<DataContextProps | null>(null);
 

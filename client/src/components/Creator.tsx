@@ -16,7 +16,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Textarea from "@mui/joy/Textarea";
 import { useAddPostsMutation } from "../redux/features/api/apiSlice";
 import { useAuth } from "../context/DataContext";
-import { DataContextProps } from "../types/global.types";
+import { DataContextProps } from "../types";
 import ToastAlert from "./miscellaneous/ToastAlert";
 
 export default function Creator() {

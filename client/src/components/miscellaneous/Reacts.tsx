@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Angry, Like, Love, Sad, Star } from "./PostReact";
 import { useAppDispatch } from "../../redux/store/store";
 import { userReaction } from "../../redux/features/ActiveReactions";
-import { Reaction } from "../../types/global.types";
+import { Reaction } from "../../types";
 
 const StyledReacts = styled("div")({
   display: "flex",
