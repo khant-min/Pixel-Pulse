@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "cviWGUT3PRYwd8Dj4DbbfBtc/y2PMl9oJ0XIkzjGyuIgWmlBL48R/Df1v382Bv1hgVrDtvhrAYYtqGh5onHjGw==",
+  "success": true,
+  "projectFilePath": "D:\\Work Space\\Personal Development\\Projects\\Social-Media\\SocialMedia.RestApi\\SocialMedia.RestApi\\SocialMedia.RestApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\TRY\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
+    "C:\\Users\\TRY\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\TRY\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
+    "C:\\Users\\TRY\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\TRY\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "C:\\Users\\TRY\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "C:\\Users\\TRY\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
