@@ -7,6 +7,7 @@ import { DataContextProps } from "../types";
 import { useNavigate } from "react-router-dom";
 import axiosClient from "../axios-client";
 import { useEffect } from "react";
+import Feeds from "./feeds/Feeds";
 
 const NewFeed = () => {
   const { setToast } = useAuth() as DataContextProps;
@@ -15,20 +16,18 @@ const NewFeed = () => {
   const { data, isLoading, isSuccess, isError, error } =
     useGetPostsQuery("bulbasaur");
 
-  useEffect(() => {
-    isError &&
-      function () {
-        (error as any).status === 403;
-        navigate("unauthorized");
-        setToast({
-          open: true,
-          status: "error",
-          message: (error as any).error,
-        });
-      };
-  }, [error]);
-
-  console.log("data", data);
+  // useEffect(() => {
+  //   isError &&
+  //     function () {
+  //       (error as any).status === 403;
+  //       navigate("unauthorized");
+  //       setToast({
+  //         open: true,
+  //         status: "error",
+  //         message: (error as any).error,
+  //       });
+  //     };
+  // }, [error]);
 
   const logout = async () => {
     localStorage.removeItem("ACCESS_TOKEN");
@@ -45,11 +44,13 @@ const NewFeed = () => {
   return (
     <Box flex={4} px={10} height="100vh" overflow="scroll" component="section">
       <Creator />
-      <Button onClick={logout}>Logout</Button>
 
-      {data?.map((post: any) => (
+      <Feeds />
+      {/* <Button onClick={logout}>Logout</Button> */}
+
+      {/* {data?.map((post: any) => (
         <Post post={post} key={post._id} />
-      ))}
+      ))} */}
     </Box>
   );
 };

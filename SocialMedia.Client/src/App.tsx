@@ -10,7 +10,10 @@ import Unauthorized from "./components/Unauthorized";
 const App = () => {
   return (
     <Routes>
-      <Route element={<ProtectedAuth />}>
+      <Route path="/" element={<Main />} />
+      <Route path="profile" element={<Profile />} />
+
+      {/* <Route element={<ProtectedAuth />}>
         <Route path="auth" element={<Auth />} />
       </Route>
 
@@ -21,7 +24,7 @@ const App = () => {
       </Route>
 
       <Route path="unauthorized" element={<Unauthorized />} />
-      <Route path="*" element={<NotFound />} />
+      <Route path="*" element={<NotFound />} /> */}
     </Routes>
   );
 };

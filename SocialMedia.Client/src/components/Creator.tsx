@@ -40,23 +40,29 @@ export default function Creator() {
     p: 4,
   };
 
+  // const handleClick = () => {
+  //   try {
+  //     addPosts({ postText });
+  //     return setToast({
+  //       open: true,
+  //       status: "success",
+  //       message: JSON.stringify("Post created successfully"),
+  //     });
+  //   } catch (err) {
+  //     return setToast({
+  //       open: true,
+  //       status: "error",
+  //       message: "Error Occured!",
+  //     });
+  //   } finally {
+  //     setPostOpen(false);
+  //   }
+  // };
+
   const handleClick = () => {
-    try {
-      addPosts({ postText });
-      return setToast({
-        open: true,
-        status: "success",
-        message: JSON.stringify("Post created successfully"),
-      });
-    } catch (err) {
-      return setToast({
-        open: true,
-        status: "error",
-        message: "Error Occured!",
-      });
-    } finally {
-      setPostOpen(false);
-    }
+    console.log("value: ", postText);
+    setPostText("");
+    setPostOpen(false);
   };
 
   return (
