@@ -1,0 +1,7 @@
+D:\Work Space\Personal Development\Projects\Social-Media\SocialMedia.RestApi\SocialMedia.RestApi\obj\Debug\net7.0\SocialMedia.RestApi.csproj.AssemblyReference.cache
+D:\Work Space\Personal Development\Projects\Social-Media\SocialMedia.RestApi\SocialMedia.RestApi\obj\Debug\net7.0\SocialMedia.RestApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work Space\Personal Development\Projects\Social-Media\SocialMedia.RestApi\SocialMedia.RestApi\obj\Debug\net7.0\SocialMedia.RestApi.AssemblyInfoInputs.cache
+D:\Work Space\Personal Development\Projects\Social-Media\SocialMedia.RestApi\SocialMedia.RestApi\obj\Debug\net7.0\SocialMedia.RestApi.AssemblyInfo.cs
+D:\Work Space\Personal Development\Projects\Social-Media\SocialMedia.RestApi\SocialMedia.RestApi\obj\Debug\net7.0\SocialMedia.RestApi.csproj.CoreCompileInputs.cache
+D:\Work Space\Personal Development\Projects\Social-Media\SocialMedia.RestApi\SocialMedia.RestApi\obj\Debug\net7.0\SocialMedia.RestApi.MvcApplicationPartsAssemblyInfo.cs
+D:\Work Space\Personal Development\Projects\Social-Media\SocialMedia.RestApi\SocialMedia.RestApi\obj\Debug\net7.0\SocialMedia.RestApi.MvcApplicationPartsAssemblyInfo.cache
