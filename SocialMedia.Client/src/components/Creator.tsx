@@ -78,20 +78,20 @@ export default function Creator() {
               bgcolor: "lightgray",
               px: 2,
             }}
-            placeholder="What's on your mind, Khant?"
+            placeholder="Post something..."
             fullWidth
           />
         </Box>
         <Divider sx={{ my: 3 }} />
-        <Box display="flex" justifyContent="space-between">
-          <Button variant="contained" onClick={() => setOpen(true)}>
+        <Box display="flex" justifyContent="space-between" alignItems="center">
+          <Button variant="outlined" onClick={() => setOpen(true)}>
             <LiveTv /> Live video
           </Button>
-          <Button variant="contained" onClick={() => setOpen(true)}>
+          <Button variant="outlined" onClick={() => setOpen(true)}>
             <CollectionsIcon /> Photo/video
           </Button>
-          <Button variant="contained" onClick={() => setOpen(true)}>
-            <MoodIcon /> Feeling/activity
+          <Button variant="outlined" onClick={() => setOpen(true)}>
+            <MoodIcon /> Activity
           </Button>
         </Box>
       </Box>
