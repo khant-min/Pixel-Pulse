@@ -66,7 +66,7 @@ export default function Creator() {
   };
 
   return (
-    <>
+    <div style={{ margin: "20px" }}>
       <ToastAlert />
       <Box p={2} mt={4} boxShadow={3}>
         <Box display="flex" gap={2}>
@@ -153,6 +153,6 @@ export default function Creator() {
           </Button>
         </Box>
       </Modal>
-    </>
+    </div>
   );
 }
