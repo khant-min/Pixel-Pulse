@@ -1,4 +1,4 @@
-package com.km.socialmedia.service.impls;
+package com.km.socialmedia.service.impl;
 
 import com.km.socialmedia.dao.PostDao;
 import com.km.socialmedia.model.Post;
@@ -16,6 +16,7 @@ public class PostServiceImpl implements PostService {
     @Autowired
     PostDao postDao;
 
+    @Override
     public ResponseEntity<List<Post>> getAllPosts() {
         try {
             return new ResponseEntity<>(postDao.findAll(), HttpStatus.OK);
