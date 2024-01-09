@@ -12,7 +12,7 @@ const StyledForm = styled("form")({
   gap: 10,
 });
 
-export default function Signup() {
+export default function Register() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");

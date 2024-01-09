@@ -1,6 +1,6 @@
 import { Tabs, Tab, Typography, Box, Container } from "@mui/material";
 import { useState } from "react";
-import Signup from "../components/auth/Signup";
+import Signup from "../components/auth/Register";
 import Login from "../components/auth/Login";
 
 interface TabPanelProps {

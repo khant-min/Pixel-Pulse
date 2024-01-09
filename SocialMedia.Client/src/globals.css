@@ -1,3 +1,49 @@
 html {
   overflow: hidden;
 }
+
+.login-container {
+  background-image: url("./public/assets/fun_theme.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-subcontainer {
+  background-color: #fff;
+  border-radius: 10%;
+  padding: 40px;
+}
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-header h1,
+.login-header h3 {
+  text-align: center;
+}
+
+.login-btn {
+  background-color: aqua;
+  padding: 10px;
+  border-radius: 6px;
+  min-width: 40%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s linear;
+  align-self: flex-end;
+}
+.login-btn:hover {
+  background-color: #35cbfe;
+}
+
+.err-msg {
+  color: red;
+}
