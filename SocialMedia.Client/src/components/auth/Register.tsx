@@ -1,89 +1,72 @@
-import { FormHelperText, Button, styled } from "@mui/material";
-import { Input } from "@mui/joy";
-import { useState } from "react";
-import axiosClient from "../../axios-client";
-import { useAuth } from "../../context/DataContext";
-import { DataContextProps } from "../../types";
-import { useNavigate } from "react-router-dom";
+// Register.tsx
+import React from "react";
+import AuthForm from "../cc/AuthForm";
+import { useForm, UseFormRegister } from "react-hook-form";
 
-const StyledForm = styled("form")({
-  display: "flex",
-  flexDirection: "column",
-  gap: 10,
-});
+type Inputs = {
+  [key: string]: string;
+  email: string;
+  password: string;
+};
 
-export default function Register() {
-  const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const [pic, setPic] = useState<string>("");
-  const navigate = useNavigate();
+interface FormInput {
+  id: string;
+  label: string;
+  register: UseFormRegister<Inputs> | any;
+  name: string;
+  errorMsg: string;
+}
 
-  const { setToken } = useAuth() as DataContextProps;
+const Register: React.FC = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
 
-  const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const { data } = await axiosClient.post("/api/auth/signup", {
-      name,
-      email,
-      password,
-      // pic,
-    });
-    setToken(data.accessToken);
-    navigate("/");
+  const onSubmit = (data: Record<string, any>) => {
+    // Your register logic here
+    console.log(data);
   };
 
+  const formInputs: FormInput[] = [
+    {
+      id: "username",
+      label: "Username",
+      register: register("username"),
+      name: "username",
+      errorMsg: "Username is required",
+    },
+    {
+      id: "email",
+      label: "Email",
+      register: register("email"),
+      name: "email",
+      errorMsg: "Email is required",
+    },
+    {
+      id: "password",
+      label: "Password",
+      register: register("password", { required: true }),
+      name: "password",
+      errorMsg: "Password is required",
+    },
+    {
+      id: "confirmPassword",
+      label: "Confirm Password",
+      register: register("confirmPassword", { required: true }),
+      name: "confirmPassword",
+      errorMsg: "Confirm Password is required",
+    },
+  ];
+
   return (
-    <StyledForm onSubmit={handleSignup}>
-      <Input
-        required
-        placeholder="Enter your username"
-        variant="outlined"
-        value={name}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setName(e.target.value)
-        }
-      />
-      <Input
-        required
-        placeholder="Enter your email"
-        variant="outlined"
-        value={email}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setEmail(e.target.value)
-        }
-      />
-      <Input
-        required
-        placeholder="Enter your password"
-        variant="outlined"
-        type="password"
-        value={password}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setPassword(e.target.value)
-        }
-      />
-      <Input
-        required
-        placeholder="Enter your password again"
-        variant="outlined"
-        type="password"
-        value={confirmPassword}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setConfirmPassword(e.target.value)
-        }
-      />
-      {/* <Input
-        required
-        variant="outlined"
-        type="file"
-        value={pic}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          setPic(e.target.value)
-        }
-      /> */}
-      <Button type="submit">Submit</Button>
-    </StyledForm>
+    <AuthForm
+      onSubmit={handleSubmit(onSubmit)}
+      formInputs={formInputs}
+      errors={errors}
+    />
   );
-}
+};
+
+export default Register;

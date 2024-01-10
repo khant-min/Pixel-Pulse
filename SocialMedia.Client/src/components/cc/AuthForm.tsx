@@ -2,10 +2,16 @@ import React from "react";
 import { TextField } from "@mui/material";
 import { FieldValues, UseFormRegister } from "react-hook-form";
 
+type Inputs = {
+  [key: string]: string;
+  email: string;
+  password: string;
+};
+
 interface FormInput {
   id: string;
   label: string;
-  register: UseFormRegister<FieldValues>;
+  register: UseFormRegister<Inputs>;
   name: string;
   errorMsg: string;
 }
