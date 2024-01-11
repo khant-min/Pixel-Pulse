@@ -21,7 +21,7 @@ import { useNavigate } from "react-router-dom";
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
-  backgroundColor: "#278",
+  backgroundColor: "#2BC6FF",
 });
 
 const Search = styled("div")({
@@ -42,7 +42,10 @@ const NavBar = () => {
         <StyledToolbar>
           {/* <Avatar alt="Pain" src={pain} /> */}
           <Button onClick={() => navigate("/")}>
-            <Typography color="white">Facebook</Typography>
+            {/* <Typography className="brand" color="white">
+              Pixel Pulse
+            </Typography> */}
+            <div className="brand-logo">Pixel Pulse</div>
           </Button>
           <Search>
             <InputBase placeholder="search something..." fullWidth />

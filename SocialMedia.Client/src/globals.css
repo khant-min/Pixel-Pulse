@@ -1,5 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Lemon&family=Lobster&family=Shadows+Into+Light&display=swap");
+:root {
+  --main-font: "Lemon", serif;
+  --main-font2: "Lobster", sans-serif;
+  --main-font3: "Shadows Into Light", cursive;
+}
+
 html {
   overflow: hidden;
+}
+
+.header {
+  font-family: var(--main-font);
+}
+
+.sub-header {
+  font-family: var(--main-font2);
 }
 
 .auth-container {
@@ -32,18 +47,36 @@ html {
 
 .auth-btn {
   background-color: aqua;
+  color: #fff;
   padding: 10px;
   border-radius: 6px;
-  min-width: 40%;
+  width: 80px;
   border: none;
   cursor: pointer;
   transition: all 0.2s linear;
-  align-self: flex-end;
 }
 .auth-btn:hover {
   background-color: #35cbfe;
 }
 
+.auth-link a {
+  color: #000;
+  font-family: var(--main-font2);
+}
+
+.submit-control {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .err-msg {
   color: red;
+}
+
+.brand-logo {
+  font-family: var(--main-font);
+  font-size: larger;
+  color: white;
 }

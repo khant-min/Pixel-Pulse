@@ -1,6 +1,7 @@
 import React from "react";
 import { TextField } from "@mui/material";
 import { FieldValues, UseFormRegister } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 type Inputs = {
   [key: string]: string;
@@ -21,22 +22,24 @@ interface AuthFormProps {
   onSubmit: () => void; // Adjust the type based on your actual submit function
   formInputs: FormInput[];
   errors: Record<string, any>;
+  to: string;
 }
 
 const AuthForm: React.FC<AuthFormProps> = ({
   onSubmit,
   formInputs,
   errors,
+  to,
 }) => {
   return (
     <div className="auth-container">
       <div className="auth-subcontainer">
         <div className="auth-header">
           <span>
-            <h1>Pixel Pulse</h1>
+            <h1 className="header">Pixel Pulse</h1>
           </span>
           <span>
-            <h3>Social Media Platform</h3>
+            <h3 className="sub-header">Social Media Platform</h3>
           </span>
         </div>
         <div className="auth-form">
@@ -55,7 +58,17 @@ const AuthForm: React.FC<AuthFormProps> = ({
                 )}
               </React.Fragment>
             ))}
-            <button className="auth-btn">Submit</button>
+
+            <div className="submit-control">
+              <span className="auth-link">
+                {to === "login" ? (
+                  <Link to="/login">Already have an account? Login</Link>
+                ) : (
+                  <Link to="/register">Doesn't have and account? Register</Link>
+                )}
+              </span>
+              <button className="auth-btn">Submit</button>
+            </div>
           </form>
         </div>
       </div>

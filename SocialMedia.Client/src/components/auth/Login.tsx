@@ -142,6 +142,7 @@ const Login: React.FC = () => {
       onSubmit={handleSubmit(onSubmit)}
       formInputs={formInputs}
       errors={errors}
+      to="register"
     />
   );
 };
