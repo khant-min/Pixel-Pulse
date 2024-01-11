@@ -102,6 +102,7 @@ interface FormInput {
   label: string;
   register: UseFormRegister<Inputs> | any;
   name: string;
+  inputType: string;
   errorMsg: string;
 }
 
@@ -123,6 +124,7 @@ const Login: React.FC = () => {
       label: "Email",
       register: register("email", { required: true }),
       name: "email",
+      inputType: "email",
       errorMsg: "Email is required",
     },
     {
@@ -130,6 +132,7 @@ const Login: React.FC = () => {
       label: "Password",
       register: register("password", { required: true }),
       name: "password",
+      inputType: "password",
       errorMsg: "Password is required",
     },
   ];

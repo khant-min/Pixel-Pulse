@@ -2,7 +2,7 @@ html {
   overflow: hidden;
 }
 
-.login-container {
+.auth-container {
   background-image: url("./public/assets/fun_theme.png");
   background-size: cover;
   background-position: center;
@@ -13,24 +13,24 @@ html {
   height: 100vh;
 }
 
-.login-subcontainer {
+.auth-subcontainer {
   background-color: #fff;
-  border-radius: 10%;
-  padding: 40px;
+  border-radius: 20px;
+  padding: 40px 60px;
 }
 
-.login-form form {
+.auth-form form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.login-header h1,
-.login-header h3 {
+.auth-header h1,
+.auth-header h3 {
   text-align: center;
 }
 
-.login-btn {
+.auth-btn {
   background-color: aqua;
   padding: 10px;
   border-radius: 6px;
@@ -40,7 +40,7 @@ html {
   transition: all 0.2s linear;
   align-self: flex-end;
 }
-.login-btn:hover {
+.auth-btn:hover {
   background-color: #35cbfe;
 }
 

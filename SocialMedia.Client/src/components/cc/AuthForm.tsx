@@ -13,6 +13,7 @@ interface FormInput {
   label: string;
   register: UseFormRegister<Inputs>;
   name: string;
+  inputType: string;
   errorMsg: string;
 }
 
@@ -28,9 +29,9 @@ const AuthForm: React.FC<AuthFormProps> = ({
   errors,
 }) => {
   return (
-    <div className="login-container">
-      <div className="login-subcontainer">
-        <div className="login-header">
+    <div className="auth-container">
+      <div className="auth-subcontainer">
+        <div className="auth-header">
           <span>
             <h1>Pixel Pulse</h1>
           </span>
@@ -38,11 +39,12 @@ const AuthForm: React.FC<AuthFormProps> = ({
             <h3>Social Media Platform</h3>
           </span>
         </div>
-        <div className="login-form">
+        <div className="auth-form">
           <form onSubmit={onSubmit}>
             {formInputs.map(input => (
               <React.Fragment key={input.id}>
                 <TextField
+                  type={input.inputType}
                   id={`outlined-basic-${input.id}`}
                   label={input.label}
                   variant="outlined"
@@ -53,7 +55,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
                 )}
               </React.Fragment>
             ))}
-            <button className="login-btn">Submit</button>
+            <button className="auth-btn">Submit</button>
           </form>
         </div>
       </div>
