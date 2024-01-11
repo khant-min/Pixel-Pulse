@@ -1,0 +1,32 @@
+.social-reactions {
+  /* display: flex;
+  justify-content: space-around; */
+}
+
+.divided-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid lightgray;
+  border-bottom: 2px solid lightgray;
+}
+
+.reactions,
+.comments,
+.share {
+  flex: 1;
+  padding: 0 8%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  margin: 2px;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.1s linear;
+}
+
+.reactions:hover,
+.comments:hover,
+.share:hover {
+  background-color: lightgray;
+}
