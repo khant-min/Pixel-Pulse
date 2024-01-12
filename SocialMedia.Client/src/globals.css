@@ -80,3 +80,15 @@ html {
   font-size: larger;
   color: white;
 }
+
+.post-news {
+  background-color: lightgray;
+  width: 100%;
+  border-radius: 100px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-family: var(--main-font);
+  font-size: small;
+}

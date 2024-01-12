@@ -71,7 +71,8 @@ export default function Creator() {
       <Box p={2} mt={4} boxShadow={3}>
         <Box display="flex" gap={2}>
           <Avatar alt="profile" src={pain} />
-          <InputBase
+          {/* <InputBase
+            style={{ cursor: "pointer" }}
             onClick={() => setPostOpen(true)}
             sx={{
               borderRadius: "1.5rem",
@@ -80,18 +81,26 @@ export default function Creator() {
             }}
             placeholder="Post something..."
             fullWidth
-          />
+          /> */}
+          <div className="post-news" onClick={() => setPostOpen(true)}>
+            Post something...
+          </div>
         </Box>
-        <Divider sx={{ my: 3 }} />
+        <Divider sx={{ my: 2 }} />
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Button variant="outlined" onClick={() => setOpen(true)}>
-            <LiveTv /> Live video
+            <LiveTv style={{ color: "#ff0000", marginRight: "10px" }} /> Live
+            video
           </Button>
           <Button variant="outlined" onClick={() => setOpen(true)}>
-            <CollectionsIcon /> Photo/video
+            <CollectionsIcon
+              style={{ color: "#00ff00;", marginRight: "10px" }}
+            />{" "}
+            Photo/video
           </Button>
           <Button variant="outlined" onClick={() => setOpen(true)}>
-            <MoodIcon /> Activity
+            <MoodIcon style={{ color: "#ffff00", marginRight: "10px" }} />{" "}
+            Activity
           </Button>
         </Box>
       </Box>
