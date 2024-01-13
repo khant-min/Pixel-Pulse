@@ -1,5 +1,6 @@
 export type Reaction = "like" | "love" | "star" | "sad" | "angry";
 export type HttpMethods = "GET" | "POST" | "PUT" | "DELETE";
+export type Themes = "LIGHT" | "DARK";
 
 export interface ToastType {
   open: boolean;

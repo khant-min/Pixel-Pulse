@@ -17,8 +17,18 @@ import {
   ListItemText,
   Switch,
 } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { toggle, toggling } from "../redux/features/Theme";
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+  const toggleLightDark = useSelector(toggling);
+
+  const handleToggle = () => {
+    console.log("toggle light dark", toggleLightDark);
+    dispatch(toggle("DARK"));
+  };
+
   return (
     <Box
       flex={1}
@@ -84,7 +94,11 @@ const Sidebar = () => {
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton component="a" href="#simple-list">
+          <ListItemButton
+            component="a"
+            href="#simple-list"
+            onClick={handleToggle}
+          >
             <ListItemIcon>
               <ModeNight />
             </ListItemIcon>
