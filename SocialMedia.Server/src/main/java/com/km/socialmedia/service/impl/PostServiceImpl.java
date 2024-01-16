@@ -67,4 +67,10 @@ public class PostServiceImpl implements PostService {
         postDao.save(foundPost);
         return ResponseEntity.ok("Post updated successfully.");
     }
+
+    @Override
+    public ResponseEntity<String> deletePost(Long id) {
+        postDao.deleteById(id);
+        return ResponseEntity.ok("Post deleted successfully");
+    }
 }

@@ -28,4 +28,9 @@ public class PostController {
     public ResponseEntity<String> updatePost(@PathVariable("id") Long id,  @RequestBody Post post) {
         return postService.updatePost(id, post);
     }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deletePost(@PathVariable("id") Long id) {
+        return postService.deletePost(id);
+    }
 }
