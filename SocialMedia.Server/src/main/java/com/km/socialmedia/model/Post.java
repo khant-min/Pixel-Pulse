@@ -15,10 +15,10 @@ public class Post {
     private String username;
     private String title;
     private String content;
-    private String time_ago;
-    private String reactions;
-    private List<String> comments;
-    private String profile_pic;
+    private String time_ago;  // date
+//    private String reactions;
+//    private List<String> comments;
+//    private String profile_pic;
 }
 
 /**

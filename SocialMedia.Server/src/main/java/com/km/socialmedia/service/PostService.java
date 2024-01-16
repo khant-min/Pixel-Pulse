@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface PostService {
     public ResponseEntity<List<Post>> getAllPosts();
+    public ResponseEntity<String> createPost(Post post);
 }

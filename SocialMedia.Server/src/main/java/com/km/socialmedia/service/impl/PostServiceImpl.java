@@ -19,10 +19,16 @@ public class PostServiceImpl implements PostService {
     @Override
     public ResponseEntity<List<Post>> getAllPosts() {
         try {
-            return new ResponseEntity<>(postDao.findAll(), HttpStatus.OK);
+            return new ResponseEntity<List<Post>>(postDao.findAll(), HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(new ArrayList<>(), HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @Override
+    public ResponseEntity<String> createPost(Post post) {
+        postDao.save(post);
+        return new ResponseEntity<>("Post created successfully.", HttpStatus.OK);
     }
 }
