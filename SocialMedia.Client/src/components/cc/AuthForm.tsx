@@ -19,7 +19,7 @@ interface FormInput {
 }
 
 interface AuthFormProps {
-  onSubmit: () => void; // Adjust the type based on your actual submit function
+  onSubmit: () => void;
   formInputs: FormInput[];
   errors: Record<string, any>;
   to: string;

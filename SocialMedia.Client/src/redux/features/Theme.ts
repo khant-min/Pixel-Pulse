@@ -7,8 +7,7 @@ interface InitialStateProps {
 }
 
 const initialState: InitialStateProps = {
-  //   toggle: localStorage.getItem("theme"),
-  theme: "LIGHT",
+  theme: localStorage.getItem("theme") as Themes,
 };
 
 const themeReducer = createSlice({
@@ -16,8 +15,7 @@ const themeReducer = createSlice({
   initialState,
   reducers: {
     toggle: (state, action) => {
-      console.log("state: ", state, " : ", "action: ", action);
-
+      localStorage.setItem("theme", action.payload);
       state.theme = action.payload;
     },
   },

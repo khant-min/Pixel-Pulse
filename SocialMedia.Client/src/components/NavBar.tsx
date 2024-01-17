@@ -17,11 +17,13 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import pain from "../public/assets/pain.jpg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { toggling, toggle } from "../redux/features/Theme";
+import "./styles.css";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
   justifyContent: "space-between",
-  backgroundColor: "#2BC6FF",
 });
 
 const Search = styled("div")({
@@ -35,11 +37,19 @@ const NavBar = () => {
   const [openAcc, setOpenAcc] = useState<boolean>(false);
   const [openMsg, setOpenMsg] = useState<boolean>(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const pageTheme = useSelector(toggling);
+
+  const toggleTheme = () => {
+    pageTheme === "DARK" ? dispatch(toggle("LIGHT")) : dispatch(toggle("DARK"));
+  };
 
   return (
     <>
       <AppBar position="sticky">
-        <StyledToolbar>
+        <StyledToolbar
+          className={pageTheme === "DARK" ? "light-header" : "dark-header"}
+        >
           {/* <Avatar alt="Pain" src={pain} /> */}
           <Button onClick={() => navigate("/")}>
             {/* <Typography className="brand" color="white">
@@ -61,7 +71,7 @@ const NavBar = () => {
                 }}
               />
             </IconButton>
-            <IconButton>
+            <IconButton onClick={toggleTheme}>
               <NotificationsIcon
                 color="secondary"
                 sx={{

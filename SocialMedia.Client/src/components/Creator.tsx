@@ -94,7 +94,7 @@ export default function Creator() {
           </Button>
           <Button variant="outlined" onClick={() => setOpen(true)}>
             <CollectionsIcon
-              style={{ color: "#00ff00;", marginRight: "10px" }}
+              style={{ color: "#00ff00", marginRight: "10px" }}
             />{" "}
             Photo/video
           </Button>
